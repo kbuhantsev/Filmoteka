@@ -1,0 +1,33 @@
+{
+  "name": "filmoteka",
+  "version": "2.0.0",
+  "description": "",
+  "homepage": "https://kbuhantsev.github.io/Filmoteka",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /Filmoteka/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbuhantsev/Filmoteka.git"
+  },
+  "keywords": [],
+  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kbuhantsev/Filmoteka/issues"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "modern-normalize": "^1.1.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "buffer": "^6.0.3",
+    "parcel": "^2.7.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^1.7.4",
+    "process": "^0.11.10"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}

@@ -1,0 +1,15 @@
+@import './common/common';
+
+@import './utils/variables';
+@import './utils/breakpoints';
+
+@import './utils/mixines';
+@import './utils/placeholders';
+
+@import './base/base';
+@import './base/reset';
+
+@import './common/modal-window';
+
+@import './layout/header-home';
+@import './layout/header-watched';

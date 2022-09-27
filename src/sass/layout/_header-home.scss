@@ -1,0 +1,81 @@
+.header {
+  @extend %section;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+
+  background-image: url('/src/images/headerHome/background-mobile.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding-top: 40px;
+  padding-bottom: 45px;
+
+  //ВРЕМЕННО
+  height: 215px;
+
+  @media screen and (min-width: $tablet) {
+    background-image: url('/src/images/headerHome/background-tablet.jpg');
+  }
+
+  @media screen and (min-width: $desktop) {
+    background-image: url('/src/images/headerHome/background-desktop.jpg');
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation-list {
+  @extend %list;
+  display: flex;
+  gap: 40px;
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  align-items: center;
+  width: 280px;
+  margin: 0 auto;
+}
+
+.form-input {
+  background-color: transparent;
+  border: {
+    bottom: 1px solid $white;
+    top: none;
+    left: none;
+    right: none;
+  }
+  outline: none;
+  width: 100%;
+  color: $white;
+}
+
+.button-submit {
+  position: absolute;
+  background-image: url('/src/images/SVG/search.svg');
+  background-position: center;
+
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  right: 0;
+}
+
+.search-error {
+  padding-top: 15px;
+  color: red;
+}
