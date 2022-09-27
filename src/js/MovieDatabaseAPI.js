@@ -16,7 +16,7 @@ export default class MovieDatabase {
     const URL = `${BASE_URL}trending/movie/week?api_key=${API_KEY}&page=${page}&include_adult=false&language=en-US`;
     const data = await this.#axiosGet(URL);
     if (!!data) {
-      this.#updateGenres(data);
+      await this.#updateGenres(data);
     }
     return data;
   }
@@ -40,7 +40,15 @@ export default class MovieDatabase {
     this.genres = result.genres;
   }
 
-  #updateGenres(data) {}
+  async #updateGenres(data) {
+    for (const film of data.results) {
+      film.genres = [];
+      for (const genreId of film.genre_ids) {
+        const genre = this.genres.find(element => element.id === genreId);
+        film.genres.push({ id: genre.id, name: genre.name });
+      }
+    }
+  }
 
   async #axiosGet(URL) {
     try {
