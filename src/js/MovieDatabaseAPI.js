@@ -16,7 +16,7 @@ export default class MovieDatabase {
     const URL = `${BASE_URL}trending/movie/week?api_key=${API_KEY}&page=${page}&include_adult=false&language=en-US`;
     const data = await this.#axiosGet(URL);
     if (!!data) {
-      await this.#updateGenres(data);
+      this.#updateGenres(data);
     }
     return data;
   }
@@ -30,7 +30,11 @@ export default class MovieDatabase {
   // https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&query=titanic&page=1&include_adult=false
   async searchMovie(query, page = 1) {
     const URL = `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`;
-    return await this.#axiosGet(URL);
+    const data = await this.#axiosGet(URL);
+    if (!!data) {
+      await this.#updateGenres(data);
+    }
+    return data;
   }
 
   //https://api.themoviedb.org/3/genre/movie/list?api_key=<<api_key>>
@@ -40,7 +44,7 @@ export default class MovieDatabase {
     this.genres = result.genres;
   }
 
-  async #updateGenres(data) {
+  #updateGenres(data) {
     for (const film of data.results) {
       film.genres = [];
       for (const genreId of film.genre_ids) {

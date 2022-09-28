@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
 
-  background-image: url('/src/images/headerHome/background-mobile.jpg');
+  background-image: url('/src/images/header/background-mobile.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -18,11 +18,11 @@
   height: 215px;
 
   @media screen and (min-width: $tablet) {
-    background-image: url('/src/images/headerHome/background-tablet.jpg');
+    background-image: url('/src/images/header/background-tablet.jpg');
   }
 
   @media screen and (min-width: $desktop) {
-    background-image: url('/src/images/headerHome/background-desktop.jpg');
+    background-image: url('/src/images/header/background-desktop.jpg');
   }
 }
 
