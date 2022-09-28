@@ -9,9 +9,7 @@
 @import './base/base';
 @import './base/reset';
 
-@import './common/modal-window';
-
-@import './layout/header-home';
-@import './layout/header-watched';
+@import './layout/header';
 @import './layout/body';
 @import './layout/footer';
+@import './common/modal-window';
