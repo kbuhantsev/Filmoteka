@@ -7,22 +7,23 @@
   gap: 20px;
   font-weight: 500;
   margin: 0 auto;
+  max-width: 320px;
+  // outline: 1px solid tomato;
 
   @media screen and (min-width: $tablet) {
     flex-direction: row;
+    gap: 70px;
     align-items: flex-start;
-    justify-content: space-between;
-    padding: 40px;
-    padding-right: 70px;
-    width: 700px;
-    height: 550px;
+    padding: 40px 70px 40px 40px;
+
+    max-width: 700px;
   }
 
-  @media screen and (min-width: $tablet) {
-    width: 805px;
+  @media screen and (min-width: $desktop) {
+    max-width: 805px;
     height: 560px;
-    padding: 12px;
-    padding-bottom: 40px;
+    gap: 15px;
+    padding: 40px 10px;
   }
 }
 
@@ -33,12 +34,12 @@
   overflow: hidden;
 
   @media screen and (min-width: $tablet) {
-    width: 265px;
-    height: 375px;
+    flex-basis: 265px;
+    height: 100%;
   }
 
-  @media screen and (min-width: $tablet) {
-    width: 375px;
+  @media screen and (min-width: $desktop) {
+    flex-basis: 375px;
     height: 480px;
   }
 
@@ -51,13 +52,14 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 240px;
 
   @media screen and (min-width: $tablet) {
-    width: 265px;
+    flex-basis: 265px;
   }
 
-  @media screen and (min-width: $tablet) {
-    width: 390px;
+  @media screen and (min-width: $desktop) {
+    flex-basis: 390px;
   }
 
   &__title {
@@ -104,11 +106,18 @@
 .buttons {
   display: flex;
   gap: 20px;
+  @media screen and (min-width: $desktop) {
+    margin-left: 10px;
+  }
 }
 
 .button {
   width: 110px;
   height: 44px;
+  @media screen and (min-width: $tablet) {
+    font-size: 12px;
+    width: 125px;
+  }
 }
 
 .orange {
