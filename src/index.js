@@ -1,7 +1,7 @@
 import MovieDatabase from './js/MovieDatabaseAPI';
 import Pagination from 'tui-pagination';
 
-import { setGalleryClickListeners } from './js/modal-window';
+import { setGalleryClickListeners } from './js/gallery-card-modal';
 
 const refs = {
   gallery: document.querySelector('.gallery'),
