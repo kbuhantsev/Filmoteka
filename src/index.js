@@ -1,6 +1,8 @@
 import MovieDatabase from './js/MovieDatabaseAPI';
 import Pagination from 'tui-pagination';
 
+import { setGalleryClickListeners } from './js/modal-window';
+
 const refs = {
   gallery: document.querySelector('.gallery'),
   formSearch: document.querySelector('.search-form'),
@@ -99,6 +101,8 @@ function renderGallery(items) {
   refs.gallery.insertAdjacentHTML('afterbegin', markup);
 
   handleSearchResult();
+
+  setGalleryClickListeners();
 }
 
 function handleSearchResult() {
