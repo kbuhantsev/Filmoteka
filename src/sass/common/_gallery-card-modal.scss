@@ -6,38 +6,52 @@
   padding: 40px 20px;
   gap: 20px;
   font-weight: 500;
-  max-width: 440px;
   background-color: white;
+  position: relative;
+  //
+  min-width: 320px;
+  width: 100%;
+  max-width: 420px;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 70px;
     align-items: flex-start;
-    padding: 40px 70px 40px 40px;
+    padding: 40px 60px 40px 40px;
 
-    max-width: 700px;
+    width: 700px;
+    max-width: none;
   }
 
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: 1280px) {
     width: 805px;
-    height: 560px;
     gap: 15px;
     padding: 40px 10px;
   }
 }
 
+.icon-card-close,
+.icon-video-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  fill: black;
+  cursor: pointer;
+  &:hover {
+    fill: orange;
+  }
+}
+
 .image {
-  width: 240px;
-  height: 360px;
   border-radius: 5px;
   overflow: hidden;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: 768px) {
     flex-basis: 265px;
     height: 100%;
   }
 
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: 1280px) {
     flex-basis: 375px;
     height: 480px;
   }
@@ -51,13 +65,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 240px;
+  min-width: 240px;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: 768px) {
     flex-basis: 265px;
   }
 
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: 1280px) {
     flex-basis: 390px;
   }
 
@@ -70,24 +84,42 @@
   display: flex;
   gap: 8px;
   flex-direction: column;
-
-  @media screen and (min-width: $tablet) {
-  }
-
-  &__item {
-  }
+  list-style: none;
+  font-size: 12px;
 
   &__values {
     display: flex;
+    list-style: none;
   }
 
   &__title {
     width: 50%;
-    color: #8c8c8c;
+    color: black;
   }
 
   &__value {
+    display: flex;
     width: 50%;
+    line-height: 1.3;
+
+    &--vote-orange {
+      text-align: center;
+      color: white;
+      border-radius: 5px;
+      background-color: orange;
+      margin-right: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    &--vote-grey {
+      text-align: center;
+      border-radius: 5px;
+      background-color: grey;
+      margin-left: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
   }
 }
 
@@ -105,24 +137,13 @@
 .buttons {
   display: flex;
   gap: 20px;
-  @media screen and (min-width: $desktop) {
+  flex-wrap: wrap;
+  @media screen and (min-width: 768px) {
+    gap: 10px;
+  }
+  @media screen and (min-width: 1280px) {
     margin-left: 10px;
   }
-}
-
-.button {
-  width: 110px;
-  height: 44px;
-
-  cursor: pointer;
-  @media screen and (min-width: $tablet) {
-    font-size: 12px;
-    width: 125px;
-  }
-}
-
-.orange {
-  background-color: orange;
 }
 
 .modal {
@@ -134,7 +155,7 @@
   transform: translateX(-50%);
   z-index: 30;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: 768px) {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -157,11 +178,44 @@
 }
 
 .modal.active,
-.overlay.active {
+.overlay.active,
+.trailer.active {
   opacity: 1;
   visibility: visible;
 }
 
 .no-scroll {
   overflow: hidden;
+}
+
+.trailer {
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding-top: 35px;
+  min-width: 320px;
+  width: 100%;
+  max-width: 420px;
+  height: 280px;
+
+  @media screen and (min-width: 768px) {
+    max-width: none;
+    width: 720px;
+    height: 390px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 900px;
+    height: 600px;
+  }
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
 }

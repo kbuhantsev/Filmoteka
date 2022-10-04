@@ -1,5 +1,6 @@
-const modalWindow = document.querySelector('.film-card');
-const overlay = document.querySelector('.overlay');
+import refs from './refs';
+import { rengerGalleryCard } from './rendering';
+import { MovieAPI } from '../index';
 
 function setGalleryClickListeners() {
   const filmCards = document.querySelectorAll('.gallery__card');
@@ -10,21 +11,21 @@ function setGalleryClickListeners() {
   document.body.addEventListener(
     'keyup',
     function (e) {
-      var key = e.keyCode;
+      var key = e.code;
 
-      if (key == 27) {
-        modalWindow.classList.remove('active');
-        overlay.classList.remove('active');
-        modalWindow.style.top = '50%';
+      if (key === 'Escape') {
+        refs.modalWindow.classList.remove('active');
+        refs.overlay.classList.remove('active');
+        refs.modalWindow.style.top = '50%';
       }
     },
     false
   );
 
-  overlay.addEventListener('click', function () {
-    modalWindow.classList.remove('active');
+  refs.overlay.addEventListener('click', function () {
+    refs.modalWindow.classList.remove('active');
     this.classList.remove('active');
-    modalWindow.style.top = '50%';
+    refs.modalWindow.style.top = '50%';
   });
 }
 
@@ -32,13 +33,16 @@ function onGalleryCardClick(event) {
   event.preventDefault();
 
   const cardNode = event.currentTarget;
+  const filmCard = MovieAPI.getFilmFromResults(cardNode.dataset.id);
+
+  rengerGalleryCard(refs.modalWindow, filmCard);
 
   if (window.matchMedia('(max-width: 768px)').matches) {
-    modalWindow.style.top = window.pageYOffset + 'px';
+    refs.modalWindow.style.top = window.pageYOffset + 'px';
   }
 
-  modalWindow.classList.add('active');
-  overlay.classList.add('active');
+  refs.modalWindow.classList.add('active');
+  refs.overlay.classList.add('active');
 }
 
 export { setGalleryClickListeners };
