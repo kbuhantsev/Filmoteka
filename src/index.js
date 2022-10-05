@@ -6,7 +6,6 @@ import { setGalleryClickListeners } from './js/gallery-card-modal';
 
 refs.formSearch.addEventListener('submit', formOnSearch);
 
-let galleryItems = [];
 let isSearchingResult = false;
 let searchQuery = '';
 const MovieAPI = new MovieDatabase();
@@ -33,8 +32,7 @@ tuiInstance.on('afterMove', event => {
 async function getTrandVideo(pageNumber = 1) {
   const { page, results, total_pages } = await MovieAPI.getTrending(pageNumber);
 
-  galleryItems = results;
-  renderGallery(refs.gallery, galleryItems);
+  renderGallery(refs.gallery, results);
   setGalleryClickListeners();
   if (pageNumber === 1) {
     tuiInstance.reset(total_pages);
@@ -46,8 +44,7 @@ async function searchVideo(query, pageNumber = 1) {
     query,
     pageNumber
   );
-  galleryItems = results;
-  renderGallery(refs.gallery, galleryItems);
+  renderGallery(refs.gallery, results);
 
   handleSearchResult();
   setGalleryClickListeners();
